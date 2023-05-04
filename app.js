@@ -39,9 +39,49 @@ const restaurant = {
     console.log(otherIngredients)
   }
 };
+//NULLISH COALESCING OPERATOR
+//nullish coalescing works with nullish values instead of falsy 
+//null and undefined 
+restaurant.numGuests=0
+const guests=restaurant.numGuests || 10
+console.log(guests)
+
+const guestCorrect=restaurant.numGuests ?? 10;
+console.log(guestCorrect)
+
+/*
+//SHORT CIRCUITING (&&) and OR (||)
+//logical operators can use any data type and can return any data type
+
+//OR SHORT CIRCUITING
+console.log(3 || 'Munyiri')
+//short circuiting means if the firstvalue is truthy then it return the first value
+console.log('' || 'David')
+console.log(true || 0)
+console.log(undefined || null)
+console.log(undefined || 0|| ''|| 'Hello' || 23|| null)
+
+const guests1 =restaurant.numGuests ? restaurant.numGuests :10
+
+console.log(guests1)
+const guests2=restaurant.numGuests || 20
+console.log(guests2)
+
+console.log("--AND--&&")// works opposite of OR ,executes when first value is falsy
+console.log(0 && 'Mahubali')
+
+console.log(7 && 'Mahuba')
+console.log('Hello'  && 23 && null && 'Abdulraheem')
+ if(restaurant.orderPizza){
+  restaurant.orderPizza('mushrooms','spinach')
+ }
+ restaurant.orderPizza && restaurant.orderPizza('mushrooms','spinach')
+
+
 restaurant.orderPizza('mushrooms','onion','olives','spinach')
 //REST PATTERN AND PARAMETER
 //use in array
+
 const arr=[2,3,...[4,5]]//spread becuase its on the right hand side
 console.log(arr)
 const [a,b,...others]=[1,2,3,4,5]//Rest because its on the left hand side
@@ -49,7 +89,7 @@ console.log(a,b,others)
 
 const [pizza,,risotto,...otherFood]=[...restaurant.mainMenu,...restaurant.starterMenu]
 console.log(otherFood);
-
+restaurant.orderPizza('Mushrooms');
 //Use in objects
 const {sat,...weekdays}=restaurant.openingHours;
 console.log(weekdays)
@@ -67,7 +107,7 @@ add(1,2,3,4)
 
 
 //THE SPREAD OPERATOR
-/*
+
 const newRestaurant={foundedIn: '1998',...restaurant,founder:'Munyiri'}
 const ingredients=[prompt(`Let\'s make pasta! Ingredient1`),
 prompt(`Ingredient2`),
