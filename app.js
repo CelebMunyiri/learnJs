@@ -39,6 +39,10 @@ const restaurant = {
     console.log(otherIngredients)
   }
 };
+//THE FOR OFF LOOP
+const menu=[...restaurant.starterMenu,...restaurant.mainMenu]
+for (const item of menu)console.log(item)
+/*
 //NULLISH COALESCING OPERATOR
 //nullish coalescing works with nullish values instead of falsy 
 //null and undefined 
@@ -48,8 +52,8 @@ console.log(guests)
 
 const guestCorrect=restaurant.numGuests ?? 10;
 console.log(guestCorrect)
+ 
 
-/*
 //SHORT CIRCUITING (&&) and OR (||)
 //logical operators can use any data type and can return any data type
 
