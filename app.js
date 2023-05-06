@@ -4,7 +4,7 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
-const weekdays=['mon','tues','weno','thurs','fri','sato','sun']
+const weekdays=['mon','tues','weno','thur','fri','sato','sun']
 const hours={
     [weekdays[3]]: {
       open: 12,
@@ -32,10 +32,10 @@ const restaurant = {
   //Enhanced object literals
   hours,
   
-  orderDelivery({starterIndex=1,mainIndex=0,time='20:00',address='Elburgon'}){
+  orderDelivery:function({starterIndex=1,mainIndex=0,time='20:00',address='Elburgon'}){
     console.log(`Order Received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be deliverrd to ${address} at ${time}`);
   },
-  orderPasta(ing1,ing2,ing3){
+  orderPasta:function(ing1,ing2,ing3){
     console.log(`Here is your favorite pasta with ${ing1}, ${ing2}, and ${ing3}`)
   },
   orderPizza(mainIngredient,...otherIngredients){
@@ -43,12 +43,29 @@ const restaurant = {
     console.log(otherIngredients)
   }
 };
+//OPRTIONAL CHAINING
+//if(restaurant.hours && restaurant.hours.fri)
+//console.log(restaurant.hours.fri.open);
+//console.log(restaurant.hours.mon?.open)
+//console.log(restaurant.hours?.mon?.open)
+const days=['mon','tue','wed','thur','fri','sat','sun']
+for(const day of days){
+  const open=restaurant.hours[day]?.open ?? 'closed';
+  console.log(`On ${day},we open at ${open}`);
+}
+
+console.log(restaurant.order?.(0,1)?? 'Method does not exist')
+//let users=[{name:'Abdul',email:'hello@gmail'}]
+let users=[]
+
+console.log(users[0]?.name ?? 'User array empty');
+/*
 //ENHANCED OBJECT LITERALS
 console.log(restaurant.openingHours)
 console.log(restaurant.orderPizza())
 //compute
 
-/*
+
 //THE FOR OF LOOP
 const menu=[...restaurant.starterMenu,...restaurant.mainMenu]
 //for (const item of menu)console.log(item)
