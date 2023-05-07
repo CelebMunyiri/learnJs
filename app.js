@@ -43,6 +43,24 @@ const restaurant = {
     console.log(otherIngredients)
   }
 };
+//SETS
+const orderSet= new Set(['Pasta','Pizza','Risotto','Pasta'])
+console.log(orderSet);
+
+console.log(new Set('Dawud'))
+console.log(orderSet.size)
+console.log(orderSet.has('Bread'))
+orderSet.add('Garlic Bread');
+console.log(orderSet)
+orderSet.delete('Pizza');
+console.log(orderSet)
+for(const order of orderSet)console.log(order)
+
+const staff=['Waiter','Chef','Waiter','Manager','Chef','Manager']
+const staffUnique=[...new Set(staff)]
+console.log(staffUnique)
+
+/*
 //LOOPING OBJECTS
 const properties=Object.keys(hours)
 //console.log(properties)
@@ -65,7 +83,7 @@ for(const [key,{open,close}] of entries){
 }
 //OPTIONAL CHAINING
 
-/*
+
 //if(restaurant.hours && restaurant.hours.fri)
 //console.log(restaurant.hours.fri.open);
 //console.log(restaurant.hours.mon?.open)
