@@ -43,6 +43,26 @@ const restaurant = {
     console.log(otherIngredients)
   }
 };
+//MAPS ITERATION
+const question=new Map([
+  ['question','What is the best programming language in the world'],
+[1,'C'],
+[2,'Java'],
+[3,'Javascript'],
+['correct'],
+[false,'Try again'],
+])
+//console.log(Object.entries(hours))
+//const hoursMap=new Map(Object.entries(hours))
+//console.log(hoursMap)
+console.log(question.get('question'))
+for(const [key,value] of question){
+  if(typeof key=='number') console.log(`Answer ${key}: ${value}`)
+}
+const answer=Number(propmt('Your answer')).value;
+ console.log(answer)
+
+/*
 //MAPS
 const rest=new Map();
 rest.set('name',"classico Italiano");
@@ -68,7 +88,7 @@ console.log(rest.get(arr))
 
 
 
-/*
+
 //SETS
 
 const orderSet= new Set(['Pasta','Pizza','Risotto','Pasta'])
