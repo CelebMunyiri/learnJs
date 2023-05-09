@@ -43,26 +43,104 @@ const restaurant = {
     console.log(otherIngredients)
   }
 };
+//CODING CHALLENGE
+const gameEvents=new Map(
+  [
+    [17,'goal'],
+    [36,'substitution'],
+    [47,'goal'],
+    [61,'substitution'],
+    [64,'yellowcard'],
+    [69,'redcard'],
+    [70,'substitution'],
+    [72,'substitution'],
+    [76,'goal'],
+    [80,'goal'],
+    [92,'yellowcard']
+  ]
+); 
+//THE CHALLENGE RESPONSE STARTS HERE
+//solution q1
+//console.log(gameEvents.values())
+const events=[...new Set(gameEvents.values())];
+console.log(events)
+
+//Q2
+gameEvents.delete(64)
+//console.log(gameEvents)
+//Q3
+const time=[...gameEvents.keys()].pop();
+console.log(time)
+
+
+console.log(`
+An event happened, on average,every ${time/gameEvents.size} minutes
+`)
+
+//LOOPING THROUGH THE MAP
+for(const [min,event] of gameEvents){
+  const half=min<=45 ? `first`:`second`
+  console.log(`[${half} HAlf] ${min}:${event} `)
+}
+
+
+
+
+
+/*
 //MAPS ITERATION
 const question=new Map([
   ['question','What is the best programming language in the world'],
 [1,'C'],
 [2,'Java'],
 [3,'Javascript'],
-['correct'],
+['correct',3],
 [false,'Try again'],
 ])
+//Quiz app
+console.log(question.get('question'));
+
+for(const [key,value] of question){
+  if(typeof key==='number') console.log(`Answer ${key} : ${value}`)
+}
+const answer=Number(prompt('Your answer'))
+console.log(answer)
+console.log(question.get(question.get('correct')===answer));
+
+//convert map to array
+console.log(...question)
+//choosing kind of datasftrucures btn array,set,object,maps
+//sources o data 
+//1 source code
+//2 user interface as input or dom value
+//3 external sources or web api
+//getting data from web API
+//data comes inform of JSON
+//key value pairs for objects nad maps
+//there are weak objects/arrays and weak maps
+//ARRAY VS SETS FOR SIMPLE VALUE OF SETS
+//ARRAYS WHEN YOU WANT TO MANIPULATE VALUES
+//SETS WHEN YOU ARE USING UNIQUE VALUES
+//SETS ARE FAST
+//MAPS ARE GOOD FOR SIMPLE KEY VALUE STORAGE
+//MAPS ARE EASY TO ITEREATE
+//IT IS EASY TO ACCESS ELEMENTS IN OBJECTS
+//MAPS WHEN YOU WANT KEYS THAT ARE NOT STRINGS
+//JSON DATA REQUIRE OBJECTS UNLESS YOU WANT CONVERTING THEM TO MAPS
 //console.log(Object.entries(hours))
 //const hoursMap=new Map(Object.entries(hours))
 //console.log(hoursMap)
-console.log(question.get('question'))
-for(const [key,value] of question){
-  if(typeof key=='number') console.log(`Answer ${key}: ${value}`)
-}
-const answer=Number(propmt('Your answer')).value;
- console.log(answer)
+//console.log(question.get('question'))
+//for(const [key,value] of question){
+ // if(typeof key=='number') console.log(`Answer ${key}: ${value}`)
+//}
+//const answer=Number(propmt('Your answer'))
+// console.log(answer)
+ //console.log(Object.entries(hours))
+//const hoursMap=new Map(Object.entries(hours))
+//console.log(hoursMap)
 
-/*
+
 //MAPS
 const rest=new Map();
 rest.set('name',"classico Italiano");
