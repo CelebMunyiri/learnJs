@@ -40,7 +40,7 @@ console.log(employee.getWage())
 //Inheritance helps eliminate redudant code
 
 //Polymorphism=> eliminate many if else, helps use render method
-*/
+
 //Traversy media content on javascript object oriented programming
 //syntactic sugar ,it uses es5 syntax and prototypes
 const s1='Hello'
@@ -83,3 +83,101 @@ const book2={
     },
 }
 console.log(book1)
+//FEATURES OF OOP IN JAVASCRIPT
+//FEATURE 1 OBJECTS AND CLASSES
+//object literal
+const person={
+    name:'Dawud',
+    age:22,
+    greet:function(){
+        console.log(`Hello, my name is ${this.name}`)
+    }
+
+}
+person.greet();
+//Class
+class Person{
+constructor(name,age){
+    this.name=name;
+    this.age=age;
+}
+greett(){
+    console.log(`Hello my name is ${this.name} aged ${this.age}`)
+}
+}
+
+const persona=new Person('Mahubali',30)
+persona.greett();
+
+//FEATURE 2 ENCAPSULATION
+class BankAccount{
+    constructor(accountNumber){
+        this._accountNumber=accountNumber;//private property
+        this._balance=0;//private property
+    }
+    deposit(amount){
+        this._balance+=amount;
+    }
+    withdraw(amount){
+        if(amount<=this._balance){
+            this._balance-=amount;
+        }else{
+            console.log(`Insufficient fund, ${this._balance}`)
+        }
+
+    }
+    getBalance(){
+        return this._balance
+    }
+}
+const account=new BankAccount('123456789');
+account.deposit(1000);
+console.log(account.getBalance());//output:1000
+account.withdraw(500);
+console.log(account.getBalance())//output:500
+
+//FEATURE 3 INHERITANCE
+class Animal{
+    constructor(name){
+        this.name=name;
+
+    }
+    eat(){
+        console.log(`${this.name} is eating`)
+    }
+}
+
+class Dog extends Animal{
+    bark(){
+        console.log(`Woof!`)
+    }
+}
+const dog=new Dog('Buddy');
+dog.eat();//output buddy is eating
+dog.bark();//output woof! 
+
+//FEATURE 4 POLYMORPHISM
+class Shape{
+    calculateArea(){
+        console.log(`Calculating area of a shape`)
+    }
+}
+
+class Rectangle extends Shape{
+    calculateArea(){
+        console.log(`Calculating area of a rectange`)
+    }
+}
+
+class Circle extends Shape{
+    calculateArea(){
+        console.log(`Calculating area of a circle`)
+    }
+}
+const shape1=new Rectangle();
+const shape2=new Circle();
+
+shape1.calculateArea(); // output calculating area of a rectangle
+shape2.calculateArea()//output calculating area of a circle 
+*/
+
