@@ -180,4 +180,24 @@ const shape2=new Circle();
 shape1.calculateArea(); // output calculating area of a rectangle
 shape2.calculateArea()//output calculating area of a circle 
 */
+function CreateUserObject(name,city){
+    this.name=name;
+    this.city=city;
+
+    this.getName=function(){
+        console.log(this.name);
+    };
+}
+
+CreateUserObject.prototype.getCity=function(){
+    console.log(this.city);
+};
+
+const user1=new CreateUserObject('Ali','Cairo');
+const user2=new CreateUserObject('Taha','Alex');
+
+console.log(user1.getName===user2.getName);
+console.log(user1.City===user2.getCity);
+console.log(user1.getName,user2.getCity)
+
 
